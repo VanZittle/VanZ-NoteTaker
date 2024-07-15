@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const notesData = require('./db/db.json'); //Import Json file
+// const notesData = require('./db/db.json'); //Import Json file
 // const { error } = require('console');
 const fs = require('fs');
 const uuid = require('./helpers/uuid');
@@ -20,7 +20,18 @@ app.get('/', (req, res) => res.send('Take notes with Express'));
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'public/notes.html')));
 // API routes
 app.get('/api/notes', (req, res) => {
-    res.json(notesData)
+    fs.readFile('./db/db.json','utf8', (err, data) =>{
+        if (err){
+            console.error(err);
+        }else{
+            const parsedNotes = JSON.parse(data);
+            
+            res.json(parsedNotes);
+            
+
+        }
+
+    });
 })
 // POST request to add a note
 app.post('/api/notes', (req, res) => {
