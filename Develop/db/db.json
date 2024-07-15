@@ -1,9 +1,5 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text"
-    },
-    {
         "title": "one",
         "text": "one",
         "note_id": "3bf3"
@@ -14,48 +10,8 @@
         "note_id": "3817"
     },
     {
-        "title": "testBrowser",
-        "text": "i think this works now",
-        "note_id": "f068"
-    },
-    {
-        "title": "wot",
-        "text": "omg",
-        "note_id": "07fe"
-    },
-    {
-        "title": "sdfgh",
-        "text": "dfghj",
-        "note_id": "e0ed"
-    },
-    {
-        "title": "two",
-        "text": "two",
-        "note_id": "d0a9"
-    },
-    {
         "title": "three",
         "text": "three",
         "note_id": "753c"
-    },
-    {
-        "title": "four",
-        "text": "four",
-        "note_id": "5302"
-    },
-    {
-        "title": "wowowo",
-        "text": "lalala",
-        "note_id": "04b0"
-    },
-    {
-        "title": "five",
-        "text": "five",
-        "note_id": "c172"
-    },
-    {
-        "title": "six",
-        "text": "six",
-        "note_id": "1216"
     }
 ]
