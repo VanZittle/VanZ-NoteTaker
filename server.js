@@ -6,7 +6,7 @@ const fs = require('fs');
 const uuid = require('./helpers/uuid');
 // const { title } = require('process');
 // const { text } = require('process');
-const PORT = 3001;
+const PORT = process.env.PORT||3001;
 const app = express(); //Initialize app variable
 
 // Middleware for parsing application/json and urlencoded data
@@ -73,36 +73,23 @@ app.post('/api/notes', (req, res) => {
         res.status(500).json('Error in posting new note');
     }
 
-
-    // let response; //Response object to send back to client
-    // console.log(req.body)
-
-    // if (req.body?.title) {
-    //     response = {
-    //         status: 'success',
-    //         data: req.body,
-    //     };
-    //     res.json(`Note ${response.data.title} has been added!`);
-    // }else{
-    //     res.json(`Request body must have a title to create a new the note`);
-    // }
 });
 
 // DELETE request to remove a note
-const deleteNote = (id) =>
-    fetch(`/api/notes/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then((res) => res.json())
-      .then((data) => {
-        console.log('Successful DELETE request:', data);
-        return data;
-      })
-      .catch((error) => {
-        console.error('Error in DELETE request:', error);
-      });
+// const deleteNote = (id) =>
+//     fetch(`/api/notes/${id}`, {
+//       method: 'DELETE',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       }
+//     }).then((res) => res.json())
+//       .then((data) => {
+//         console.log('Successful DELETE request:', data);
+//         return data;
+//       })
+//       .catch((error) => {
+//         console.error('Error in DELETE request:', error);
+//       });
   
 
 app.listen(PORT, () => 
