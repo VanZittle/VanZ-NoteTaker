@@ -27,10 +27,7 @@ app.get('/api/notes', (req, res) => {
             const parsedNotes = JSON.parse(data);
             
             res.json(parsedNotes);
-            
-
         }
-
     });
 })
 // POST request to add a note
@@ -43,7 +40,6 @@ app.post('/api/notes', (req, res) => {
             text,
             note_id: uuid(),
         };
-    
         // const reviewString = JSON.stringify(newNote);
         // get existing notes
         fs.readFile('./db/db.json','utf8', (err, data) =>{
@@ -91,6 +87,23 @@ app.post('/api/notes', (req, res) => {
     //     res.json(`Request body must have a title to create a new the note`);
     // }
 });
+
+// DELETE request to remove a note
+const deleteNote = (id) =>
+    fetch(`/api/notes/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((res) => res.json())
+      .then((data) => {
+        console.log('Successful DELETE request:', data);
+        return data;
+      })
+      .catch((error) => {
+        console.error('Error in DELETE request:', error);
+      });
+  
 
 app.listen(PORT, () => 
 console.log(`Example app listening at http://localhost:${PORT}`));
